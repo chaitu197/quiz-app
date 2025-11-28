@@ -4,6 +4,10 @@ import { motion } from 'framer-motion';
 const CategoryCard = ({ category, index }) => {
     const navigate = useNavigate();
 
+    const handleClick = () => {
+        navigate(`/category/${category.id}`);
+    };
+
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}

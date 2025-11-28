@@ -73,7 +73,7 @@ const Quiz = () => {
     };
 
     const handleNext = () => {
-        if (currentQuestionIndex < questions.length - 1) {
+        if (currentQuestionIndex < quizQuestions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
             setSelectedAnswer(null);
             setShowResult(false);
@@ -83,9 +83,9 @@ const Quiz = () => {
                 state: {
                     category,
                     score,
-                    totalQuestions: questions.length,
+                    totalQuestions: quizQuestions.length,
                     userAnswers,
-                    questions
+                    questions: quizQuestions
                 }
             });
         }
@@ -129,7 +129,7 @@ const Quiz = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                     <ProgressBar
                         current={currentQuestionIndex + 1}
-                        total={questions.length}
+                        total={quizQuestions.length}
                     />
                     <Timer
                         duration={30}
@@ -181,7 +181,7 @@ const Quiz = () => {
                             className="btn-primary flex items-center space-x-2"
                         >
                             <span>
-                                {currentQuestionIndex < questions.length - 1 ? 'Next Question' : 'View Results'}
+                                {currentQuestionIndex < quizQuestions.length - 1 ? 'Next Question' : 'View Results'}
                             </span>
                             <ArrowRight size={20} />
                         </button>
